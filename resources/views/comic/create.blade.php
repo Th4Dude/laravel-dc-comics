@@ -11,6 +11,22 @@ Creazione
 @endsection
 
 @section('page.main')
+
+{{-- Window errors on top  --}}
+
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+        {{-- <a class="close" data-dismiss="alert" href="#">×</a> --}}
+    </div>
+@endif
+
+{{-- Window errors on top  --}}
+
 <div class="container">
     <a href="{{ route('comics.index') }}" class="btn btn-primary btn-sm">Torna all'elenco</a>
 
@@ -18,7 +34,7 @@ Creazione
         @csrf
         <div class="mb-3">
           <label for="src" class="form-label">Immagine</label>
-          <input type="text" class="form-control" id="src" name="thumb">
+          <input type="text" class="form-control" id="src" name="thumb"> 
         </div>
 
         <div class="mb-3">
@@ -36,11 +52,15 @@ Creazione
         </div>
         <div class="mb-3">
             <label for="serie" class="form-label">Serie</label>
-            <input type="text" class="form-control" id="serie" name="type">
+            <input type="text" class="form-control" id="serie" name="series">
         </div>
         <div class="mb-3">
             <label for="data" class="form-label">Data di uscita</label>
             <input type="date" class="form-control" id="data" name="sale_date">
+        </div>
+        <div class="mb-3">
+            <label for="serie" class="form-label">Genere</label>
+            <input type="text" class="form-control" id="serie" name="type">
         </div>
         <div class="mb-3">
             <label for="artists" class="form-label">Artisti</label>

@@ -37,6 +37,19 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
+
+        $request->validate([
+            'title' =>  'required|max:100',
+            'description' => 'required',
+            'image' => 'url',
+            'price' =>'required|numeric|between: 5,20',
+            'series'=>'required|max:50',
+            'sale_date' => 'required|date',
+            'type' => 'required|max:100',   
+            'artists'=>'required', 
+            'writers' =>'required',
+        ]);
+
         $data = $request->all();
 
         $newComic = new Comic();
@@ -45,7 +58,7 @@ class ComicController extends Controller
         $newComic->description = $data['description'];
         $newComic->thumb = $data['thumb'];
         $newComic->price = $data['price'];
-        $newComic->series = $data['type'];
+        $newComic->series = $data['series'];
         $newComic->sale_date = $data['sale_date'];
         $newComic->type = $data['type'];
         $newComic->artists = $data['artists'];
@@ -56,6 +69,7 @@ class ComicController extends Controller
         return redirect()->route('comics.show', $newComic->id);
     }
 
+    
     /**
      * Display the specified resource.
      *
