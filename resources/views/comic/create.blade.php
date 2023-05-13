@@ -21,7 +21,7 @@ Creazione
                 <li>{{ $error }}</li>
             @endforeach
         </ul>
-        {{-- <a class="close" data-dismiss="alert" href="#">×</a> --}}
+        <a class="close" data-dismiss="alert" href="#" onclick="closeAlert()">×</a>
     </div>
 @endif
 
@@ -76,3 +76,12 @@ Creazione
 </div>  
 
 @endsection
+
+
+
+<script>
+    // Funzione per chiudere la finestra
+    function closeAlert() {
+      document.querySelector('.alert').style.display = 'none';
+    }
+  </script>

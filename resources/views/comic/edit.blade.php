@@ -1,7 +1,7 @@
 @extends('layout.app')
 
 @section('page.up_title')
-  Modifica Fumetto
+Modifica Fumetto
 @endsection
 
 @section('page.title')
@@ -21,7 +21,7 @@
                 <li>{{ $error }}</li>
             @endforeach
         </ul>
-        {{-- <a class="close" data-dismiss="alert" href="#">×</a> --}}
+        <a class="close" data-dismiss="alert" href="#" onclick="closeAlert()">×</a>
     </div>
 @endif
 
@@ -73,3 +73,11 @@
 </div>
 
 @endsection
+
+
+<script>
+  // Funzione per chiudere la finestra
+  function closeAlert() {
+    document.querySelector('.alert').style.display = 'none';
+  }
+</script>
