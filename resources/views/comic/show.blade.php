@@ -23,10 +23,10 @@
           <a href="{{ route('comics.index') }}" class="btn btn-success btn-sm">Torna all'elenco</a>
           <div class="mt-4">
             <a href="{{ route('comics.edit', $comic->id) }}" class="btn btn-primary">Modifica</a>
-            <form action="{{ route('comics.destroy', $comic->id) }}" method="POST" class="d-inline">
+            <form action="{{ route('comics.destroy', $comic->id) }}" method="POST" class="d-inline" id="delete-form">
               @csrf
               @method('DELETE')
-              <button type="submit" class="btn btn-danger">Elimina</button>
+              <button type="submit" class="btn btn-danger" onclick="confirmDelete(event)">Elimina</button>
             </form>
           </div>
         </div>
@@ -34,3 +34,16 @@
 </div>  
 
 @endsection 
+
+
+<script>
+  
+  function confirmDelete(event) {
+    event.preventDefault(); 
+
+    if (confirm('Sei sicuro di voler eliminare questo elemento?')) {
+      document.getElementById('delete-form').submit();
+    }
+  }
+
+</script>

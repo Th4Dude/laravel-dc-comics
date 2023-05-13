@@ -101,11 +101,10 @@ class ComicController extends Controller
        $comic->type = $data['type'];
        $comic->artists = $data['artists'];
        $comic->writers = $data['writers'];
-       
+
        $comic->save();
 
        return redirect()->route('comics.show', $id);
-
     }
 
     /**
@@ -119,6 +118,5 @@ class ComicController extends Controller
         $comic = Comic::findOrFail($id);
         $comic->delete();
         return redirect()->route('comics.index');
-        
     }
 }
