@@ -60,7 +60,7 @@ Creazione
         </div>
         <div class="mb-3">
             <label for="serie" class="form-label">Genere</label>
-            <input type="text" class="form-control" id="serie" name="type" value="{{ old('type') }}">
+            <input type="text" class="form-control" id="type" name="type" value="{{ old('type') }}">
         </div>
         <div class="mb-3">
             <label for="artists" class="form-label">Artisti</label>
